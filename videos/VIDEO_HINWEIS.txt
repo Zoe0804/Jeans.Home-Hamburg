@@ -1,0 +1,3 @@
+Optional: Hier eine eigene oder lizenzierte, stumme MP4-Datei als store-ambience.mp4 ablegen.
+Empfohlen: 8-15 Sekunden, Store-Atmosphäre und Einkaufserlebnis, 16:9.
+Ohne Videodatei wird das Hintergrundbild angezeigt.

@@ -1,0 +1,446 @@
+/* Hamburg Jeans Relaunch | HTML + CSS, ohne JavaScript */
+:root {
+  --navy: #0a1b2d;
+  --navy-2: #132a40;
+  --ink: #17283a;
+  --muted: #5d6973;
+  --sand: #c1a675;
+  --sand-light: #e6d6b8;
+  --paper: #f5f3ee;
+  --white: #fff;
+  --line: rgba(10, 27, 45, .16);
+  --sans: "DM Sans", Arial, sans-serif;
+  --display: "Oswald", Impact, sans-serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; color: var(--ink); background: var(--paper); font-family: var(--sans); font-size: 16px; line-height: 1.65; }
+img { display: block; width: 100%; }
+a { color: inherit; text-decoration: none; }
+a:focus-visible, input:focus-visible, label:focus-visible { outline: 3px solid var(--sand); outline-offset: 4px; }
+.container { width: min(1180px, calc(100% - 64px)); margin-inline: auto; }
+.topline { background: var(--navy); color: #e9edf1; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
+.topline-inner { min-height: 34px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.site-header { background: rgba(255,255,255,.97); position: relative; z-index: 10; border-bottom: 1px solid rgba(10,27,45,.08); }
+.nav-wrap { min-height: 94px; display: flex; justify-content: space-between; align-items: center; gap: 35px; }
+.brand { width: 154px; display: flex; flex-direction: column; line-height: 1; color: var(--navy); flex-shrink: 0; }
+.brand-small { font-size: 12px; letter-spacing: .32em; font-weight: 700; margin-left: 3px; }
+.brand-main { font-family: var(--display); font-size: 42px; font-weight: 500; letter-spacing: .09em; }
+.brand-est { font-size: 8px; letter-spacing: .19em; border-top: 1px solid currentColor; padding-top: 6px; margin-top: 5px; text-align: center; }
+.main-nav { display: flex; align-items: center; gap: clamp(16px, 2.5vw, 36px); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .035em; }
+.main-nav > a:not(.nav-cta) { padding: 12px 0; position: relative; }
+.main-nav > a:not(.nav-cta)::after { content: ""; height: 2px; position: absolute; left: 0; bottom: 5px; width: 0; background: var(--sand); transition: width .2s ease; }
+.main-nav > a:hover::after, .main-nav > a.active::after { width: 100%; }
+.nav-cta { background: var(--sand); padding: 13px 17px; color: white; white-space: nowrap; transition: background .2s; }
+.nav-cta:hover, .button-sand:hover { background: #a98d5d; }
+.nav-cta span, .button span { margin-left: 14px; }
+.menu-toggle, .menu-button { display: none; }
+.hero { min-height: 650px; position: relative; display: flex; align-items: center; overflow: hidden; color: white; background: var(--navy); }
+.hero-image, .hero-shade, .page-hero-image, .page-hero-shade { position: absolute; inset: 0; }
+.hero-image { background: url("https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=2200&q=90") center 45% / cover no-repeat; transform: scale(1.01); }
+.hero-shade, .page-hero-shade { background: linear-gradient(90deg, rgba(5,19,34,.94) 0%, rgba(5,19,34,.83) 39%, rgba(5,19,34,.24) 78%, rgba(5,19,34,.15) 100%); }
+.hero-content { position: relative; z-index: 1; padding-top: 48px; padding-bottom: 42px; }
+.eyebrow { color: #8b7149; font-size: 10px; font-weight: 700; letter-spacing: .2em; line-height: 1.5; margin: 0 0 20px; }
+.eyebrow.light { color: var(--sand-light); }
+h1, h2, h3, h4, p { margin-top: 0; }
+h1, h2 { font-family: var(--display); font-weight: 500; letter-spacing: .005em; line-height: 1.08; text-transform: uppercase; }
+h1 { font-size: clamp(48px, 6.4vw, 82px); max-width: 760px; margin-bottom: 22px; }
+h1 em, h2 em { color: var(--sand); font-style: normal; }
+.hero-copy { max-width: 465px; color: #e1e6eb; font-size: 16px; line-height: 1.8; }
+.button-row { display: flex; align-items: center; flex-wrap: wrap; gap: 25px; margin-top: 29px; }
+.button { display: inline-flex; justify-content: center; align-items: center; min-height: 48px; padding: 13px 20px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; transition: background .2s, transform .2s; }
+.button:hover { transform: translateY(-2px); }
+.button-sand { background: var(--sand); color: white; }
+.button-dark { background: var(--navy); color: white; }
+.text-link { font-size: 11px; font-weight: 600; border-bottom: 1px solid currentColor; padding-bottom: 4px; }
+.light-link { color: white; }
+.hero-points { display: flex; flex-wrap: wrap; gap: 0; margin-top: 62px; max-width: 700px; }
+.hero-points > div { padding: 0 25px; border-left: 1px solid rgba(255,255,255,.4); display: flex; flex-direction: column; min-width: 180px; }
+.hero-points > div:first-child { border-left: 0; padding-left: 0; }
+.point-icon { font-family: var(--display); font-size: 22px; color: var(--sand-light); margin-bottom: 8px; }
+.hero-points strong { font-size: 11px; text-transform: uppercase; letter-spacing: .04em; }
+.hero-points small { font-size: 11px; color: #d2d8df; margin-top: 3px; }
+.hero-caption { position: absolute; z-index: 1; right: 32px; bottom: 25px; font-size: 9px; letter-spacing: .18em; color: #e4e7e9; }
+.hero-caption span { color: var(--sand); padding: 0 9px; }
+.section-pad { padding: 100px 0; }
+.intro { background: var(--paper); }
+.intro-grid, .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10%; align-items: start; }
+h2 { font-size: clamp(37px, 4vw, 56px); margin-bottom: 20px; }
+.intro-text { max-width: 510px; padding-top: 8px; }
+.intro-text p, .story-copy p { color: #59646c; font-size: 15px; line-height: 1.9; }
+.under-link { display: inline-flex; align-items: center; gap: 15px; border-bottom: 1px solid var(--sand); padding: 5px 0; margin-top: 10px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .045em; }
+.under-link span { color: #9c7e4c; font-size: 16px; }
+.feature-section { background: #eae7df; padding: 0 0 90px; }
+.feature-grid { display: grid; grid-template-columns: 1fr .82fr 1fr; gap: 24px; align-items: stretch; }
+.feature-card { min-height: 420px; position: relative; }
+.feature-photo { overflow: hidden; background: #243447; }
+.feature-photo img { height: 100%; min-height: 420px; object-fit: cover; filter: saturate(.78); transition: transform .5s; }
+.feature-photo:hover img { transform: scale(1.04); }
+.feature-overlay { position: absolute; inset: 0; padding: 28px; display: flex; flex-direction: column; justify-content: flex-end; color: white; background: linear-gradient(0deg, rgba(5,19,34,.8), transparent 60%); }
+.feature-overlay span, .fit-tag { font-size: 10px; letter-spacing: .18em; color: var(--sand-light); font-weight: 700; }
+.feature-overlay h3 { font: 500 31px/1.15 var(--display); text-transform: uppercase; margin: 9px 0 0; }
+.feature-copy { background: var(--paper); padding: 55px 28px 35px; display: flex; flex-direction: column; justify-content: center; }
+.feature-copy h2 { font-size: clamp(34px, 3.5vw, 46px); }
+.feature-copy > p:not(.eyebrow) { color: var(--muted); font-size: 14px; line-height: 1.85; }
+.feature-copy .under-link { align-self: flex-start; margin-top: 16px; }
+.visit-band, .simple-cta { background: var(--navy); color: white; padding: 78px 0; position: relative; overflow: hidden; }
+.visit-band::before, .simple-cta::before { content: ""; position: absolute; inset: 0; opacity: .09; background: repeating-linear-gradient(135deg, transparent 0 5px, #9aa7b4 5px 6px); pointer-events: none; }
+.visit-grid { position: relative; display: grid; grid-template-columns: 1.2fr .8fr; gap: 10%; align-items: center; }
+.visit-grid h2, .simple-cta h2 { font-size: clamp(38px, 4.5vw, 58px); margin: 0; }
+.visit-side p { max-width: 440px; color: #d4dce3; font-size: 14px; line-height: 1.9; }
+.visit-side .button { margin-top: 8px; }
+.values { background: var(--paper); }
+.section-heading { max-width: 680px; margin-bottom: 52px; }
+.value-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 35px; }
+.value-grid article { border-top: 1px solid var(--line); padding-top: 22px; }
+.value-number { color: #9e8358; font-family: var(--display); font-size: 23px; }
+.value-grid h3 { font-family: var(--display); font-weight: 500; font-size: 24px; text-transform: uppercase; margin: 16px 0 10px; }
+.value-grid p { color: var(--muted); font-size: 14px; line-height: 1.8; max-width: 310px; }
+.site-footer { background: #071626; color: #e3e8ed; padding: 58px 0 0; }
+.footer-grid { display: grid; grid-template-columns: 1.1fr .8fr 1.1fr 1.1fr; gap: 38px; padding-bottom: 42px; }
+.brand-light { color: white; }
+.footer-brand p, .footer-grid p { color: #b8c2cc; font-size: 12px; line-height: 1.9; margin: 20px 0 0; }
+.footer-grid h4 { color: var(--sand-light); font-size: 10px; letter-spacing: .16em; margin-bottom: 18px; }
+.footer-grid > div:not(:first-child) { border-left: 1px solid rgba(255,255,255,.15); padding-left: 26px; }
+.footer-grid > div > a:not(.brand) { display: block; font-size: 12px; color: #d5dce3; margin: 8px 0; }
+.footer-grid a:hover { color: var(--sand-light); }
+.footer-link { margin-top: 15px !important; }
+.footer-bottom { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; border-top: 1px solid rgba(255,255,255,.16); padding: 19px 0; color: #aeb9c4; font-size: 10px; }
+.page-hero { min-height: 480px; display: flex; align-items: center; position: relative; background: var(--navy); color: white; overflow: hidden; }
+.page-hero-image { background-position: center; background-size: cover; }
+.about-image { background-image: url("https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=2000&q=85"); }
+.advice-image { background-image: url("https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=2000&q=85"); }
+.store-image { background-image: url("https://images.unsplash.com/photo-1475178626620-a4d074967452?auto=format&fit=crop&w=2000&q=85"); }
+.page-hero-shade { background: linear-gradient(90deg, rgba(5,19,34,.91), rgba(5,19,34,.58) 55%, rgba(5,19,34,.25)); }
+.page-hero-content { position: relative; z-index: 1; padding-top: 65px; padding-bottom: 65px; }
+.page-hero h1 { font-size: clamp(45px, 6vw, 72px); }
+.page-hero-content > p:last-child { max-width: 530px; color: #e1e6eb; }
+.story-copy .small-note { margin-top: 26px; padding-left: 15px; border-left: 2px solid var(--sand); font-size: 12px; }
+.values-alt { background: #eae7df; }
+.simple-cta-inner { position: relative; display: flex; justify-content: space-between; align-items: center; gap: 30px; }
+.simple-cta .button { flex-shrink: 0; }
+.fit-section { background: #eae7df; padding: 70px 0; }
+.fit-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 35px; }
+.fit-grid article { border-top: 1px solid rgba(10,27,45,.2); padding-top: 20px; }
+.fit-tag { color: #9b7e4e; }
+.fit-grid h3, .fit-type-grid h3 { font-family: var(--display); font-size: 25px; font-weight: 500; text-transform: uppercase; margin: 14px 0 10px; }
+.fit-grid p, .fit-type-grid p { font-size: 14px; color: var(--muted); line-height: 1.8; }
+.fit-type-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.fit-type-grid article { background: white; padding: 27px 22px; border-bottom: 3px solid var(--sand); }
+.fit-type-grid article > span { font-size: 10px; font-weight: 700; letter-spacing: .15em; color: #9b7e4e; }
+.fit-type-grid h3 { font-size: 21px; }
+.small-note { color: #727b82; font-size: 12px; line-height: 1.7; }
+.fit-types .small-note { margin-top: 24px; }
+.store-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 10%; align-items: start; }
+.store-lead { color: var(--muted); line-height: 1.9; max-width: 440px; }
+.store-actions { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; margin-top: 27px; }
+.details-card { background: white; padding: 36px; box-shadow: 0 12px 40px rgba(10,27,45,.06); }
+.detail-row { display: grid; grid-template-columns: 40px 1fr; gap: 15px; padding: 20px 0; border-bottom: 1px solid var(--line); }
+.detail-row:first-child { padding-top: 0; }
+.detail-row:last-child { border-bottom: 0; padding-bottom: 0; }
+.detail-icon { font-size: 26px; color: #a68a5a; line-height: 1.2; }
+.detail-row h3 { font-family: var(--display); font-size: 22px; font-weight: 500; text-transform: uppercase; margin-bottom: 7px; }
+.detail-row p { font-size: 13px; color: var(--muted); margin-bottom: 5px; }
+.detail-row strong { color: #8b5b2c; font-weight: 600; }
+.detail-row a { border-bottom: 1px solid var(--sand); }
+.map-placeholder { background: #e6e3dc; padding: 60px 0; }
+.map-inner { display: flex; align-items: center; gap: 25px; }
+.map-inner h2 { font-size: 36px; margin-bottom: 8px; }
+.map-inner p:last-child { color: var(--muted); max-width: 560px; font-size: 13px; margin-bottom: 0; }
+.map-mark { width: 66px; height: 66px; display: grid; place-items: center; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); background: var(--navy); color: white; font-family: var(--display); font-size: 25px; flex-shrink: 0; }
+@media (max-width: 980px) {
+  .container { width: min(100% - 42px, 760px); }
+  .nav-wrap { min-height: 82px; }
+  .brand { width: 125px; }
+  .brand-main { font-size: 35px; }
+  .menu-button { display: flex; flex-direction: column; gap: 4px; align-items: flex-end; cursor: pointer; color: var(--navy); font-size: 10px; text-transform: uppercase; letter-spacing: .1em; }
+  .menu-button span { display: block; width: 26px; height: 2px; background: var(--navy); }
+  .menu-button b { font-weight: 700; margin-top: 3px; }
+  .main-nav { display: none; position: absolute; left: 0; right: 0; top: 100%; padding: 18px 22px 25px; background: white; box-shadow: 0 15px 20px rgba(0,0,0,.08); flex-direction: column; align-items: stretch; gap: 5px; }
+  .main-nav > a:not(.nav-cta) { padding: 12px 4px; }
+  .main-nav > a:not(.nav-cta)::after { display: none; }
+  .nav-cta { text-align: center; margin-top: 8px; }
+  .menu-toggle:checked ~ .main-nav { display: flex; }
+  .hero { min-height: 620px; }
+  .hero-shade { background: linear-gradient(90deg, rgba(5,19,34,.94), rgba(5,19,34,.67) 65%, rgba(5,19,34,.36)); }
+  .feature-grid { grid-template-columns: 1fr 1fr; }
+  .feature-copy { grid-column: span 2; grid-row: 1; min-height: auto; padding: 40px; }
+  .feature-card { min-height: 350px; }
+  .feature-photo img { min-height: 350px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .footer-grid > div:nth-child(3) { border-left: 0; padding-left: 0; }
+  .fit-type-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 620px) {
+  body { font-size: 15px; }
+  .container { width: calc(100% - 36px); }
+  .topline-inner { min-height: 32px; font-size: 9px; letter-spacing: .04em; }
+  .topline-right { display: none; }
+  .nav-wrap { min-height: 76px; }
+  .hero { min-height: 690px; align-items: flex-start; }
+  .hero-image { background-position: 61% center; }
+  .hero-shade { background: linear-gradient(90deg, rgba(5,19,34,.91), rgba(5,19,34,.68)), linear-gradient(0deg, rgba(5,19,34,.3), transparent); }
+  .hero-content { padding-top: 65px; padding-bottom: 55px; }
+  h1 { font-size: clamp(47px, 13vw, 68px); }
+  .hero-copy { font-size: 14px; max-width: 360px; }
+  .button-row { align-items: flex-start; flex-direction: column; gap: 17px; }
+  .hero-points { margin-top: 43px; display: grid; grid-template-columns: 1fr; gap: 17px; }
+  .hero-points > div, .hero-points > div:first-child { padding: 0 0 0 14px; border-left: 1px solid rgba(255,255,255,.4); min-width: 0; }
+  .point-icon { display: none; }
+  .hero-caption { display: none; }
+  .section-pad { padding: 68px 0; }
+  .intro-grid, .story-grid, .visit-grid, .store-grid { grid-template-columns: 1fr; gap: 24px; }
+  h2 { font-size: 42px; }
+  .feature-section { padding-bottom: 55px; }
+  .feature-grid { grid-template-columns: 1fr; gap: 15px; }
+  .feature-copy { grid-column: auto; grid-row: auto; padding: 38px 25px; }
+  .feature-card, .feature-photo img { min-height: 340px; }
+  .visit-band, .simple-cta { padding: 60px 0; }
+  .visit-grid { gap: 26px; }
+  .value-grid, .fit-grid { grid-template-columns: 1fr; gap: 24px; }
+  .value-grid article { padding-top: 16px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px 20px; }
+  .footer-grid > div:not(:first-child) { padding-left: 15px; }
+  .footer-grid > div:nth-child(3) { padding-left: 0; }
+  .footer-brand { grid-column: span 2; }
+  .footer-grid h4 { margin-bottom: 10px; }
+  .footer-bottom { flex-direction: column; gap: 8px; }
+  .page-hero { min-height: 430px; }
+  .page-hero-content { padding-top: 55px; padding-bottom: 55px; }
+  .page-hero h1 { font-size: clamp(43px, 12vw, 60px); }
+  .simple-cta-inner { align-items: flex-start; flex-direction: column; }
+  .fit-type-grid { grid-template-columns: 1fr; }
+  .details-card { padding: 25px 20px; }
+  .map-inner { align-items: flex-start; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+}
+
+/* Original-Logo unverändert verwenden; keine Filter, Verzerrungen oder Farbänderungen */
+.brand { width: 174px; }
+.brand .original-logo { width: 100%; height: auto; object-fit: contain; }
+.brand-light { background: white; padding: 8px; width: 160px; }
+.hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .66; }
+.hero-image { background-image: url("https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=2000&q=85"); }
+.hero-content { animation: urban-rise .9s ease-out both; }
+.feature-card, .value-grid article { animation: urban-rise .7s ease-out both; }
+@keyframes urban-rise {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (max-width: 620px) {
+  .brand { width: 132px; }
+  .brand-light { width: 145px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-video { display: none; }
+}
+
+
+/* Startseite: automatisch seitlich wechselnde Bilder wie ein ruhiges Video */
+.hero-slideshow { position: absolute; inset: 0; overflow: hidden; }
+.hero-slide {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center;
+  opacity: 0;
+  animation: denim-slideshow 18s infinite;
+  will-change: transform, opacity;
+}
+.slide-one {
+  background-image: url("https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=2000&q=85");
+  animation-delay: 0s;
+}
+.slide-two {
+  background-image: url("https://images.unsplash.com/photo-1475178626620-a4d074967452?auto=format&fit=crop&w=2000&q=85");
+  animation-delay: 6s;
+}
+.slide-three {
+  background-image: url("https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=2000&q=85");
+  animation-delay: 12s;
+}
+
+@keyframes denim-slideshow {
+  0% { opacity: 0; transform: translateX(7%) scale(1.05); }
+  7%, 29% { opacity: 1; transform: translateX(0) scale(1.02); }
+  33.33%, 100% { opacity: 0; transform: translateX(-7%) scale(1.05); }
+}
+/* Statisches Bild bei reduzierter Bewegung */
+@media (prefers-reduced-motion: reduce) {
+  .hero-slide { animation: none !important; opacity: 0; transform: none; }
+  .slide-one { opacity: 1; }
+}
+
+/* Interaktive Google Maps auf der Kontaktseite */
+.map-section { background: #e6e3dc; padding: 65px 0 85px; }
+.map-section h2 { margin-bottom: 10px; }
+.map-description { max-width: 650px; color: var(--muted); font-size: 14px; }
+.store-map { display: block; width: 100%; height: 440px; border: 0; margin-top: 26px; background: #d8d8d8; }
+.map-route { margin-top: 20px; }
+@media (max-width: 620px) { .store-map { height: 340px; } }
+
+/* Jeansregale statt beschädigter Jeans oder Jacken – Bilder lokal eingebunden. */
+.slide-one { background-image: url("images/jeansladen-regale.jpg"); }
+.slide-two { background-image: url("images/jeansregal-stapel.jpg"); }
+.slide-three { background-image: url("images/jeans-auswahl.jpg"); }
+.hero-image, .store-image { background-image: url("images/jeansladen-regale.jpg"); }
+.about-image { background-image: url("images/jeansregal-stapel.jpg"); }
+.advice-image { background-image: url("images/jeans-auswahl.jpg"); }
+
+/* Bildkonzept: nur erstes Slide = Regal, dann klassische Jeans-Details. */
+.slide-one { background-image: url("images/jeansladen-regale.jpg"); }
+.slide-two { background-image: url("https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=2000&q=85"); }
+.slide-three { background-image: url("https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=2000&q=85"); }
+.hero-image, .store-image { background-image: url("images/jeansladen-regale.jpg"); }
+.about-image { background-image: url("https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=2000&q=85"); }
+.advice-image { background-image: url("https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=2000&q=85"); }
+
+
+/* FINAL: Optimierung für kleine Handys, Tablets, Desktop und große Displays */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { max-width: 100%; overflow-x: clip; }
+img, video, iframe { max-width: 100%; }
+img { height: auto; }
+.container { width: min(100% - 40px, 1240px); margin-inline: auto; }
+.hero, .page-hero { isolation: isolate; }
+.hero-slideshow, .page-hero-image { z-index: -2; }
+.hero-shade, .page-hero-shade { z-index: -1; pointer-events: none; }
+.hero-content, .page-hero-content { z-index: 1; }
+.hero-slide { background-repeat: no-repeat; }
+.slide-one { background-image: url("images/jeansladen-regale.jpg"); background-position: center 55%; }
+.slide-two { background-image: url("https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=1800&q=88"); background-position: center 55%; }
+.slide-three { background-image: url("https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=1800&q=88"); background-position: center 55%; }
+.about-image { background-image: url("https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=1800&q=88"); }
+.advice-image { background-image: url("https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=1800&q=88"); background-position: center 60%; }
+.store-image { background-image: url("images/jeansladen-regale.jpg"); }
+.feature-photo img { width: 100%; height: 100%; object-fit: cover; }
+.store-map { width: 100%; max-width: 100%; aspect-ratio: 16/9; height: auto; min-height: 290px; }
+a, button { touch-action: manipulation; }
+@media (min-width: 1600px) {
+  .container { width: min(100% - 100px, 1360px); }
+  .hero { min-height: 680px; }
+  .page-hero { min-height: 530px; }
+  .hero-content { padding-block: 110px; }
+}
+@media (min-width: 2100px) {
+  .container { width: min(100% - 140px, 1480px); }
+  .hero { min-height: 760px; }
+}
+@media (max-width: 1024px) {
+  .container { width: min(100% - 44px, 900px); }
+  .intro-grid, .split-grid, .feature-grid { gap: 26px; }
+  .hero { min-height: 560px; }
+}
+@media (max-width: 767px) {
+  .container { width: calc(100% - 32px); }
+  .hero { min-height: 520px; }
+  .hero-content { padding-top: 85px; padding-bottom: 80px; }
+  .page-hero { min-height: 390px; }
+  .page-hero-content { padding-block: 65px; }
+  .hero h1, .page-hero h1 { font-size: clamp(2.4rem, 9vw, 4.1rem); line-height: 1.09; overflow-wrap: anywhere; }
+  .hero-slide { background-position: center; }
+  .store-map { aspect-ratio: 4/3; min-height: 290px; }
+  .button { max-width: 100%; white-space: normal; }
+}
+@media (max-width: 390px) {
+  .container { width: calc(100% - 26px); }
+  .brand { width: 115px; }
+  .hero h1, .page-hero h1 { font-size: clamp(2.05rem, 10vw, 2.8rem); }
+  .hero { min-height: 480px; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .footer-brand { grid-column: auto; }
+  .footer-grid > div { padding-left: 0 !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-slide { animation: none !important; opacity: 0; transform: none; }
+  .slide-one { opacity: 1; }
+}
+
+.advice-scroll-arrow { display: inline-flex; gap: 12px; align-items: center; color: #fff; text-decoration: none; border: 1px solid rgba(255,255,255,.65); border-radius: 999px; padding: 10px 17px; margin-top: 22px; font-weight: 600; transition: background .2s, transform .2s; }
+.advice-scroll-arrow:hover, .advice-scroll-arrow:focus-visible { background: rgba(255,255,255,.18); transform: translateY(3px); }
+.advice-scroll-arrow span { font-size: .9rem; }
+
+/* Store & Anfahrt: ruhige, hochwertige Aufnahme klassischer Jeans statt Regal-Collage */
+.store-image {
+  background-image: url("https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=2000&q=90");
+  background-position: center 58%;
+}
+@media (max-width: 767px) {
+  .store-image { background-position: 55% center; }
+}
+
+/* Zwei neue, unterschiedliche Bilder nur für die gewünschten Unterseiten */
+.about-image { background-image: url("images/ueber-uns-denim-detail.jpg"); background-position: center 50%; }
+.store-image { background-image: url("images/store-jeans-innenraum.jpg"); background-position: center; }
+
+/* Hochauflösende Original-Fotografien statt vergrößerter Mockup-Ausschnitte */
+.about-image {
+  background-image: url("https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=2400&q=95");
+  background-position: center 55%;
+}
+.store-image {
+  background-image: url("https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=2400&q=95");
+  background-position: center 55%;
+}
+
+/* Bildmix nach erneutem Blick auf die Originalseite: jedes Motiv nur einmal.
+   Regale nur im ersten Slider; sonst Passform, Nähte, Stoff und Ladenansicht. */
+.slide-one { background-image: url("images/jeansladen-regale.jpg"); background-position: center 55%; }
+.slide-two { background-image: url("https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=2200&q=90"); background-position: center 50%; }
+.slide-three { background-image: url("https://images.unsplash.com/photo-1475178626620-a4d074967452?auto=format&fit=crop&w=2200&q=90"); background-position: center 45%; }
+.slide-four { background-image: url("https://images.unsplash.com/photo-1511196044526-5cb3bcb7071b?auto=format&fit=crop&w=2200&q=90"); background-position: center 50%; }
+.about-image { background-image: url("https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=2200&q=90"); background-position: center 55%; }
+.advice-image { background-image: url("https://images.unsplash.com/photo-1555689502-c4b22d76c56f?auto=format&fit=crop&w=2200&q=90"); background-position: center 50%; }
+.store-image { background-image: url("https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=2200&q=90"); background-position: center 50%; }
+
+/* Finale eindeutige Bildmotive für Beratung und Store: keine Wiederholung */
+.advice-image {
+ background-image: url("https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=2400&q=90");
+ background-position: center center;
+}
+.store-image {
+ background-image: url("images/store-jeans-innenraum.jpg");
+ background-position: center center;
+}
+
+/* Korrektur: ausschließlich klassische Jeans, keine allgemeine Kleidung */
+.advice-image { background-image: url("images/beratung-jeans-passformen.jpg"); background-position: center; }
+.store-image { background-image: url("images/store-jeansregale.jpg"); background-position: center; }
+
+/* Hochauflösende, getrennte Jeans-Fotos statt hochskalierter Mockup-Ausschnitte */
+.advice-image { background-image: url("https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=2560&q=95"); background-position: center; }
+.store-image { background-image: url("https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=2560&q=95"); background-position: center; }
+
+/* Eindeutige Seitenbilder: Über uns = Denim-Detail, Beratung = Jeans-Passformen,
+   Store = Ladenregale. Kein Motiv wird zwischen diesen drei Seiten wiederholt. */
+.about-image { background-image: url("https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=2560&q=92"); background-position: center 55%; }
+.advice-image { background-image: url("https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=2560&q=92"); background-position: center 50%; }
+.store-image { background-image: url("images/store-jeansregale.jpg"); background-position: center; }
+
+/* Neues eigenständiges Store-Motiv, nicht auf Über uns oder Beratung verwendet */
+.store-image { background-image: url("https://images.unsplash.com/photo-1565084888279-aca607ecce0c?auto=format&fit=crop&w=2560&q=90"); background-position: center 52%; }
+
+/* Zusatzseite Marken – unabhängig von bisherigen Seiten */
+.brands-hero { background: linear-gradient(120deg,#f5f2ec,#e7edf3); padding-block: clamp(65px,9vw,125px); }
+.brands-hero h1 { font-family: Oswald, sans-serif; font-size: clamp(3rem,7vw,6rem); line-height:1.08; margin: 12px 0 22px; color:#102f50; }
+.brands-lead { max-width: 700px; font-size:clamp(1.05rem,2vw,1.25rem); line-height:1.7; }
+.brands-section { background:#fff; }
+.brands-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; list-style:none; padding:0; margin:34px 0; }
+.brand-card { display:flex; align-items:center; justify-content:center; min-height:116px; padding:24px; background:#f5f6f7; border:1px solid #e2e5e9; border-radius:12px; text-align:center; }
+.brand-card span { font-family:Oswald, sans-serif; color:#102f50; font-size:clamp(1.4rem,2.6vw,2.15rem); font-weight:600; }
+.brands-note { max-width:760px; color:#56616d; margin:20px 0 30px; line-height:1.6; }
+@media(max-width:800px){.brands-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media(max-width:420px){.brands-grid{grid-template-columns:1fr;}.brand-card{min-height:88px;}}
+
+/* Nur Marken-Kopfbereich: Bild rechts, bestehende Typografie/Farben bleiben erhalten. */
+.brands-hero {
+ background-image: linear-gradient(90deg, #f5f2ec 0%, #f5f2ec 36%, rgba(245,242,236,.96) 45%, rgba(245,242,236,.76) 57%, rgba(245,242,236,.10) 80%), url("images/marken-jeans-labels.jpg");
+ background-size: cover;
+ background-position: center, right center;
+ background-repeat: no-repeat;
+}
+.brands-hero .container { position:relative; z-index:1; }
+@media(max-width:800px){
+ .brands-hero { background-image:linear-gradient(90deg,rgba(245,242,236,.98),rgba(245,242,236,.90) 58%,rgba(245,242,236,.60)),url("images/marken-jeans-labels.jpg"); background-position:center,right center; }
+}
